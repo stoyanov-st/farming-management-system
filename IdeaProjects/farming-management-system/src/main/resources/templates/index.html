@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>FarmingManagementSystem</title>
+</head>
+<body>
+    Greetings!
+    <br>
+    <div sec:authorize="isAnonymous()">
+
+        <a href="/login" th:href="@{/login}">Login here</a>
+        <br><br>
+        <a href="/register" th:href="@{/register}">Register here</a>
+    </div>
+    <div  sec:authorize="isFullyAuthenticated()">
+        <a th:href="@{/login?logout}">Logout</a>
+        <br><br>
+        <a th:href="@{/add-tractor}">Add a tractor</a>
+        <br><br>
+        <a th:href="@{/add-plot}">Add a plot</a>
+        <br><br>
+        <a th:href="@{/add-cultivation}">Add a cultivation</a>
+        <br><br>
+        <a th:href="@{/report-cultivation}">Show farming reports</a>
+
+    </div>
+</body>
+</html>

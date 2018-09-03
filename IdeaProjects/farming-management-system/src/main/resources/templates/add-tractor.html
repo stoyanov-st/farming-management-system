@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Tractor</title>
+</head>
+<body>
+    <h2>Add Tractor</h2>
+    <form method="POST"  th:action="@{/tractor}">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
+        <label for="tractorname">Tractor:</label>
+        <input id="tractorname" type="text" name="tractorName" required/>
+        <input type="submit" value="Add">
+    </form>
+</body>
+</html>

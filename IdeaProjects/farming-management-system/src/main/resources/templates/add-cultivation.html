@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cultivation</title>
+</head>
+<body>
+    <h2>Add Cultivation</h2>
+    <form method="POST"  th:action="@{/cultivation}">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
+        <label for="plotname">Plot:</label>
+        <select id="plotname">
+            <option value="default">Select Plot</option>
+            <option th:each="plot : ${plotDtos}" th:value="${plot.id}" th:text="${plot.getName()}"/>
+        </select>
+        <label for="tractorname">Tractor:</label>
+        <select id="tractorname">
+            <option value="default">Select Tractor</option>
+            <option th:each="tractor : ${tractorDtos}" th:value="${tractor.id}" th:text="${tractor.getName()}"/>
+        </select>
+
+        <label for="farmingDate">Farming Date></label>
+        <input type="date" id="farmingDate"/>
+
+        <label for="farmingArea">Farming Area</label>
+        <input type="number" id="farmingArea">
+
+        <input type="submit" value="Add">
+    </form>
+
+</body>
+</html>

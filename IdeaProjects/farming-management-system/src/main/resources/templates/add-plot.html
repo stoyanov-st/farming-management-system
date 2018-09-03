@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Plot</title>
+</head>
+<body>
+<h2>Add Plot</h2>
+<form method="POST"  th:action="@{/plot}">
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
+    <label for="plotname">Plot:</label>
+    <input id="plotname" type="text" name="plotName" required/>
+    <label for="plotCrops">Crops:</label>
+    <input id="plotCrops" type="text" name="plotCrops" required/>
+    <label for="plotarea">Plot:</label>
+    <input id="plotarea" type="text" name="plotArea" required/>
+    <input type="submit" value="Add">
+</form>
+</body>
+</html>

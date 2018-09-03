@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Report</title>
+</head>
+<body>
+<h2>Farming report</h2>
+<form th:method="GET" th:action="/cultivation">
+    <input type="text" name="filter" />
+    <input type="submit" value="search"/>
+</form>
+<table>
+    <tr>
+        <th>Plot name</th>
+        <th>Crops</th>
+        <th>Framing date</th>
+        <th>Tractor name</th>
+        <th>Plot area</th>
+    </tr>
+    <tr th:each="cultivation : ${cultivationDtos}" >
+        <td><p th:text="${plotDtos.get(cultivation.getPlotId()).getName()}"></p></td>
+        <td><p th:text="${plotDtos.get(cultivation.getPlotId()).getCrops()}"></p></td>
+        <td><p th:text="${cultivation.getFarmingDate()}"></p></td>
+        <td><p th:text="${tractorDtos.get(cultivation.getTractorId()).getName()}"></p></td>
+        <td><p th:text="${plotDtos.get(cultivation.getPlotId()).getArea()}"></p></td>
+    </tr>
+    <tr th:each="cultivation : ${cultivationDtos}">
+        <td><p th:text="${cultivation.getFarmedArea()}"></p></td>
+    </tr>
+</table>
+</body>
+</html>
